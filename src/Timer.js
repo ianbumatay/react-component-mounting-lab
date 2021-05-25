@@ -6,10 +6,21 @@ class Timer extends Component {
     color: "#" + Math.floor(Math.random() * 16777215).toString(16)
   };
 
-  // add your code here
+  // add your code here  
+  // Write a `componentDidMount` that initializes an interval. Pass `clockTick` as
+  // the callback function and set it to `1000` to update every second.  
+
+  componentDidMount(){
+    this.interval = setInterval(this.clockTick, 1000)
+  } 
+
+  componentWillUnmount(){
+    this.stopClock();
+  }
 
   render() {
     const { time, color } = this.state;
+
     return (
       <section className="Timer" style={{ background: color }}>
         <h1>{time}</h1>
